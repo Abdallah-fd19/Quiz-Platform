@@ -1,0 +1,20 @@
+# Backend (Python/Django)
+backend/quiz_platform/__pycache__/
+backend/quiz_platform/quizzes/__pycache__/*.pyc
+backend/quiz_platform/users/__pycache__/*.pyc
+backend/env/
+backend/venv/
+backend/.env
+backend/.env.local
+backend/*.sqlite3
+
+# Frontend (React/Node)
+frontend/node_modules/
+frontend/build/
+frontend/dist/
+
+# OS / Editor
+*.log
+.DS_Store
+.vscode/
+.idea/
