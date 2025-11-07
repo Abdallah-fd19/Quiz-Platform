@@ -3,6 +3,7 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated, AllowAny
 from dotenv import load_dotenv
+from django.db.models import Avg, Count, F
 import dotenv
 from django.shortcuts import get_object_or_404
 from .models import Quiz, Question, Choice, QuizAttempt, UserAnswer
@@ -335,3 +336,37 @@ class GenerateQuizAPIView(APIView):
             return Response(QuizSerializer(quiz).data, status=201)
         else:
             return Response(serializer.errors, status=400)
+
+class DashboardAPIView(APIView):
+    permission_classes = [IsAuthenticated]
+    
+    def get(self, request):
+        user = request.user
+        # Total attempts
+        total_attempts = QuizAttempt.objects.filter(user=user).count()
+        # Average score accros attempts
+        avg_score = QuizAttempt.objects.filter(user=user).aggregate(avg=Avg('score'))['avg'] or 0
+        # Recent attempts (limit 5)
+        recent_attempts_queryset = QuizAttempt.objects.filter(user=user).order_by('-completed_at')[:5]
+        recent_attempts = []
+        for a in recent_attempts_queryset:
+            recent_attempts.append({"id":a.id, "quiz_title":a.quiz.title, "score":a.score, "completed_at":a.completed_at})
+        # Correct vs Wrong (all attempts)
+        answers = UserAnswer.objects.filter(attempt__user=user)
+        correct_answers = answers.filter(selected_choice__is_correct=True).count()
+        wrong_answers = answers.filter(selected_choice__is_correct=False).count()
+        # Average score per quiz (for quizzes user attempted)
+        per_quiz = QuizAttempt.objects.filter(user=user).values(quiz_title=F('quiz__title')).annotate(avg_score=Avg('score'), attempts=Count('id')).order_by('-avg_score')[:10]
+        per_quiz_list = []
+        for q in per_quiz:
+            per_quiz_list.append({"quiz_title": q["quiz_title"], "avg_score": round(q["avg_score"] or 0, 2), "attempts": q["attempts"]})
+
+        payload = {
+            "total_attempts":total_attempts,
+            "avg_score": avg_score,
+            "recent_attempts": recent_attempts,
+            "correct_answers":correct_answers,
+            "wrong_answers":wrong_answers,
+            "per_quiz_list":per_quiz_list
+        }
+        return Response(payload)

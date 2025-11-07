@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import QuizListCreateView, QuizDetailView, QuestionListCreateView, QuestionDetailView, ChoiceListCreateView, ChoiceDetailView, SubmitQuizView, GenerateQuizAPIView
+from .views import QuizListCreateView, QuizDetailView, QuestionListCreateView, QuestionDetailView, ChoiceListCreateView, ChoiceDetailView, SubmitQuizView, GenerateQuizAPIView, DashboardAPIView
 
 urlpatterns = [
  # Quiz URLs
@@ -19,4 +19,7 @@ urlpatterns = [
 
  # AI Generate quiz
  path('generate-quiz/', GenerateQuizAPIView.as_view(), name='generate-quiz'), 
+
+ # Dashboard URL
+ path('dashboard/stats/', DashboardAPIView.as_view(), name='dashboard-stats')
 ]
