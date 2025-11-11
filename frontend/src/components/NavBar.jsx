@@ -80,6 +80,9 @@ const NavBar = () => {
             {isAuthenticated ? (
               <div className="flex items-center space-x-4">
                 <span className="text-gray-600">Welcome, {user?.username}</span>
+                <Link to="/user/dashboard" className="text-rose-500 hover:text-rose-700 cursor-pointer transition-colors font-medium">
+                  Dashboard
+                </Link>
                 <button
                   onClick={handleLogout}
                   className="bg-rose-500 text-white px-4 py-2 rounded-lg hover:bg-rose-600 transition-colors font-medium"

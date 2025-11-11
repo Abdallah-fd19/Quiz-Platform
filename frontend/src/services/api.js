@@ -148,6 +148,10 @@ class ApiService {
     });
     return response.json();
   }
+  async dashboardData(){
+    const response = await this.request('/quizzes/dashboard/stats/')
+    return response.json();
+  }
 }
 
 

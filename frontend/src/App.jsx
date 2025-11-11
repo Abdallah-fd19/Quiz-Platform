@@ -9,6 +9,7 @@ import Quiz from './pages/Quiz';
 import QuizResults from './pages/QuizResults';
 import CreateQuiz from './pages/CreateQuiz';
 import ProtectedRoute from './components/ProtectedRoute';
+import Dashboard from './pages/Dashboard';
 
 const App = () => {
   return (
@@ -42,6 +43,14 @@ const App = () => {
                 element={
                   <ProtectedRoute>
                     <CreateQuiz />
+                  </ProtectedRoute>
+                }
+              />
+              <Route
+                path='/user/dashboard'
+                element={
+                  <ProtectedRoute>
+                    <Dashboard/>
                   </ProtectedRoute>
                 }
               />
