@@ -102,11 +102,11 @@ const Dashboard = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
         {/* Recent Attempts Table */}
-        <div className="bg-white text-center shadow rounded-lg p-4">
+        <div className="bg-white text-center shadow rounded-lg p-4 border border-transparent hover:border-rose-500 transition-colors">
         <h2 className="text-xl font-semibold mb-3">Recent Attempts</h2>
         <table className="text-center border-collapse w-full">
           <thead>
-            <tr className="border-b">
+            <tr className="border-b border-b-rose-500">
               <th className="p-2">Quiz</th>
               <th className="p-2">Last Score</th>
               <th className="p-2">Date</th>
@@ -115,7 +115,7 @@ const Dashboard = () => {
           <tbody>
             {data.recent_attempts.map((a)=>{
               return(
-                <tr className="border-b hover:bg-gray-50">
+                <tr className="border-b border-b-rose-500 hover:bg-rose-50">
                   <td className="p-2">{a.quiz_title}</td>
                   <td className="p-2">{Math.round(a.score)}%</td>
                   <td className="p-2">{new Date(a.completed_at).toLocaleDateString("en-US",{month:"short", day:"numeric"})}</td>                
@@ -126,11 +126,11 @@ const Dashboard = () => {
         </table>
         </div>
         {/* Performance Per Quiz */}
-        <div className="text-center bg-white shadow rounded-lg p-4">
+        <div className="bg-white text-center shadow rounded-lg p-4 border border-transparent hover:border-rose-500 transition-colors">
         <h2 className="text-xl font-semibold mb-3">Performance Per Quiz</h2>
         <table className="w-full text-center border-collapse">
           <thead>
-            <tr className="border-b">
+            <tr className="border-b border-b-rose-500">
               <th className="p-2">Quiz</th>
               <th className="p-2">Avg Score</th>
               <th className="p-2">Attempts</th>
@@ -139,7 +139,7 @@ const Dashboard = () => {
           <tbody>
             {data.per_quiz_list.map((q)=>{
               return(
-                <tr className="border-b hover:bg-gray-50">
+                <tr className="border-b border-b-rose-500 hover:bg-rose-50">
                   <td className="p-2">{q.quiz_title}</td>
                   <td className="p-2">{Math.round(q.avg_score)}%</td>
                   <td className="p-2">{q.attempts}</td>

@@ -362,6 +362,7 @@ class DashboardAPIView(APIView):
             per_quiz_list.append({"quiz_title": q["quiz_title"], "avg_score": round(q["avg_score"] or 0, 2), "attempts": q["attempts"]})
 
         payload = {
+            "user_name":user.username,
             "total_attempts":total_attempts,
             "avg_score": avg_score,
             "recent_attempts": recent_attempts,

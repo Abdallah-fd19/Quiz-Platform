@@ -99,14 +99,14 @@ const CreateQuiz = () => {
                     onChange={handleChange}
                     placeholder="5"
                     min="1"
-                    max="50"
+                    max="7"
                     required
                     className="w-full px-4 py-3.5 bg-gray-50 border-2 border-gray-200 rounded-xl 
                              focus:outline-none focus:ring-2 focus:ring-rose-500 focus:border-rose-500 
                              transition-all duration-200 placeholder:text-gray-400
                              hover:border-gray-300"
                   />
-                  <p className="text-xs text-gray-500">Between 1 and 50 questions</p>
+                  <p className="text-xs text-gray-500">Between 1 and 7 questions</p>
                 </div>
 
                 <button

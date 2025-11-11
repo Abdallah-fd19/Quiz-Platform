@@ -51,7 +51,7 @@ export const AuthProvider = ({ children }) => {
       await api.register(username, email, password, password2);
       return { success: true };
     } catch (error) {
-      return { success: false, error: error.message };
+      return { success: false, error: error.message};
     }
   };
 

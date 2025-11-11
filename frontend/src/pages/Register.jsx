@@ -36,7 +36,12 @@ const Register = () => {
     if (result.success) {
       navigate('/login');
     } else {
-      setError(result.error);
+      if (String(result.error).startsWith("HTTP")){
+        setError("Email or Username already exists !");
+      }        
+      else{
+        setError(result.error);
+      }      
     }
     
     setLoading(false);
