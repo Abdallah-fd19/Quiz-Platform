@@ -37,3 +37,22 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: #d1d5db;
 }
+
+.goo-filter-container {
+  position: absolute;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.pixel-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;  
+}
+
+button, a, input, textarea, select, [role="button"] {
+  position: relative;
+  z-index: 100;
+}
+
