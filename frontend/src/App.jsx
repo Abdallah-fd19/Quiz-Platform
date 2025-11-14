@@ -10,6 +10,7 @@ import QuizResults from './pages/QuizResults';
 import CreateQuiz from './pages/CreateQuiz';
 import ProtectedRoute from './components/ProtectedRoute';
 import Dashboard from './pages/Dashboard';
+import Index from './pages/Index'
 
 
 
@@ -22,9 +23,17 @@ const App = () => {
           <NavBar />
           <main className="pt-20">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route
+                path="/home"
+                element={
+                  <ProtectedRoute>
+                    <Home />
+                  </ProtectedRoute>
+                }
+              />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
+              <Route path="/" element={<Index />} />
               <Route
                 path="/quiz/:id"
                 element={
