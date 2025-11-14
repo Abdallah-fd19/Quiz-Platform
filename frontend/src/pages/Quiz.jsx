@@ -81,7 +81,7 @@ const Quiz = () => {
           <h2 className="text-2xl font-bold text-gray-800 mb-4">Quiz not found</h2>
           <p className="text-gray-600 mb-4">{error || 'This quiz does not exist'}</p>
           <button 
-            onClick={() => navigate('/')} 
+            onClick={() => navigate('/home')} 
             className="bg-rose-500 text-white px-6 py-2 rounded-lg hover:bg-rose-600 transition-colors"
           >
             Back to Home

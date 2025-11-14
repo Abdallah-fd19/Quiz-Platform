@@ -13,7 +13,7 @@ const QuizResults = () => {
           <h2 className="text-2xl font-bold text-gray-800 mb-4">No results found</h2>
           <p className="text-gray-600 mb-4">Please take a quiz first to see your results.</p>
           <button 
-            onClick={() => navigate('/')} 
+            onClick={() => navigate('/home')} 
             className="bg-rose-500 text-white px-6 py-2 rounded-lg hover:bg-rose-600 transition-colors"
           >
             Back to Home
@@ -96,7 +96,7 @@ const QuizResults = () => {
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
-            onClick={() => navigate('/')}
+            onClick={() => navigate('/home')}
             className="bg-rose-500 text-white px-8 py-3 rounded-lg font-medium hover:bg-rose-600 transition-colors"
           >
             Back to Home
