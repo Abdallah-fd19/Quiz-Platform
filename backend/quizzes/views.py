@@ -5,6 +5,7 @@ from rest_framework.permissions import IsAuthenticated, AllowAny
 from dotenv import load_dotenv
 from django.db.models import Avg, Count, F
 import dotenv
+import os
 from django.shortcuts import get_object_or_404
 from .models import Quiz, Question, Choice, QuizAttempt, UserAnswer
 from rest_framework.pagination import PageNumberPagination
@@ -12,7 +13,7 @@ from .serializers import QuizSerializer, QuestionSerializer, ChoiceSerializer, Q
 import requests
 
 load_dotenv()
-GOOGLE_API_KEY = dotenv.get_key(dotenv.find_dotenv(), "GOOGLE_GEMINI_API_KEY")
+GOOGLE_API_KEY = os.getenv("GOOGLE_GEMINI_API_KEY")
 
 # ------------------- QUIZ CRUD -------------------
 class QuizListCreateView(APIView):
