@@ -10,25 +10,14 @@ import QuizResults from './pages/QuizResults';
 import CreateQuiz from './pages/CreateQuiz';
 import ProtectedRoute from './components/ProtectedRoute';
 import Dashboard from './pages/Dashboard';
-import PixelTrail from './components/PixelTrail.jsx';
+
 
 
 const App = () => {
   return (
   <AuthProvider>
     <Router>
-      <div className="relative w-full min-h-screen">      
-        <div className="fixed inset-0 w-screen h-screen">
-          <PixelTrail
-            gridSize={50}
-            trailSize={0.1}
-            maxAge={250}
-            interpolate={5}
-            color="#00d4ff"
-            gooeyFilter={{ id: 'custom-goo-filter', strength: 1 }}
-          />
-        </div>
-
+      <div className="relative w-full min-h-screen">              
         {/* App content */}        
           <NavBar />
           <main className="pt-20">

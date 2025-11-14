@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { IoIosSearch } from "react-icons/io";
 import api from '../services/api';
+import PixelTrail from '../components/PixelTrail.jsx';
 
 const Home = () => {
   const [pagination, setPagination] = useState({next:null, previous:null, quizzesCount:0, totalPages:0})
@@ -68,6 +69,16 @@ const Home = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100">
+      <div className="fixed inset-0 w-screen h-screen">
+          <PixelTrail
+            gridSize={60}
+            trailSize={0.1}
+            maxAge={250}
+            interpolate={5}
+            color="#F43F5E"
+            gooeyFilter={{ id: 'custom-goo-filter', strength: 1 }}
+          />
+        </div>
       {/* Hero Section */}
       <div className="bg-gradient-to-r from-rose-500 to-pink-600 text-white py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
