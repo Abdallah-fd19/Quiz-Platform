@@ -11,6 +11,7 @@ import CreateQuiz from './pages/CreateQuiz';
 import ProtectedRoute from './components/ProtectedRoute';
 import Dashboard from './pages/Dashboard';
 import Index from './pages/Index'
+import AuthenticatedRoute from './components/AuthenticatedRoute.jsx'
 
 
 
@@ -33,7 +34,9 @@ const App = () => {
               />
               <Route path="/login" element={<Login />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/" element={<Index />} />
+              <Route path="/" element={<AuthenticatedRoute>
+                <Index/>
+              </AuthenticatedRoute>} />
               <Route
                 path="/quiz/:id"
                 element={
