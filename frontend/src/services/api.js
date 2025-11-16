@@ -119,7 +119,16 @@ class ApiService {
 
   async getProfile() {
     const response = await this.request('/users/profile/');
-    return response.json();
+    const data = await response.json();
+
+    if (data.username){
+      return data;
+    }
+    else{
+      const username = data.user.username
+      return {...data, username}
+    }
+    
   }
 
   // Quiz endpoints

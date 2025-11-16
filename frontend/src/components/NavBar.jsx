@@ -79,7 +79,7 @@ const NavBar = () => {
             </Link>
             {isAuthenticated ? (
               <div className="flex items-center space-x-4">
-                <span className="text-gray-600">Welcome, Einstein {user?.username}</span>
+                <span className="text-gray-600">Welcome, {user?.username}</span>
                 <Link to="/user/dashboard" className="text-rose-500 hover:text-rose-700 cursor-pointer transition-colors font-medium">
                   Dashboard
                 </Link>
