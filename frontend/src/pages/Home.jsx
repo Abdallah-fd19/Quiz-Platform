@@ -84,7 +84,7 @@ const Home = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-5xl font-bold mb-6">Master Any Subject</h1>
           <p className="text-xl mb-8 max-w-2xl mx-auto">
-            Create, study, and share flashcards and quizzes to boost your learning
+            Build, review, and practice to strengthen your learning.
           </p>
           {!isAuthenticated && (
             <div className="space-x-4">
