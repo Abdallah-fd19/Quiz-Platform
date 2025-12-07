@@ -1,6 +1,6 @@
 # Quiz Platform
 
-**Quiz Platform** is an AI-powered web application designed to help learners revise and test their understanding before exams. Users can generate multiple-choice quizzes based on any topic using AI, take the quiz, and review their performance.  
+**Quiz Platform** is an AI-powered web application designed to help learners revise and test their understanding before exams. Users can generate multiple-choice quizzes based on any topic using AI, take the quiz, and review their performance. The platform also features a dashboard that displays all user-related scores and data using bar charts and line graphs for easy tracking and visualization.
 This project is built using **Django**, **React**, and **TailwindCSS**.
 
 ---
